@@ -69,6 +69,35 @@
       from { transform: scale(0.8); opacity: 0; }
       to { transform: scale(1); opacity: 1; }
     }
+    
+    /* Logo 圖片亮度調整 */
+    .logo-bright {
+      filter: brightness(1.0);
+      transition: filter 0.3s ease;
+    }
+    
+    /* 大型橫幅背景圖片亮度調整 */
+    .hero-background {
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .hero-background-bg {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-size: cover;
+      background-position: center;
+      filter: brightness(1.3);
+      z-index: 0;
+    }
+    
+    .hero-background-content {
+      position: relative;
+      z-index: 1;
+    }
   </style>
 </head>
 <body class="antialiased text-gray-800">
@@ -78,7 +107,7 @@
     <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
       <div class="flex items-center gap-3">
         <a href="index.html">
-          <img src="hihome_icon.jpg" alt="海泓 Logo" class="w-12 h-12 rounded object-cover" />
+          <img src="hihome_icon.jpg" alt="海泓 Logo" class="w-12 h-12 rounded object-cover logo-bright" />
         </a>
         <div>
           <a href="index.html" class="text-xl font-semibold hover:text-blue-700">海泓實業有限公司</a>
@@ -95,6 +124,17 @@
       <div class="md:hidden">☰</div>
     </div>
   </header>
+
+  <!-- ======= Hero / 建案代表圖（大型橫幅） ======= -->
+  <section class="hero-background relative h-[50vh] md:h-[60vh]">
+    <div class="hero-background-bg" style="background-image: url('DF04_A.jpg');"></div>
+    <div class="hero-background-content absolute inset-0 bg-black/45 flex items-center">
+      <div class="max-w-4xl mx-auto px-6 text-white text-center">
+        <h1 class="text-4xl md:text-5xl font-extrabold">海泓•東豐路蔡宅</h1>
+        <p class="mt-4 text-lg md:text-xl">台南市東區東豐路 • 已完工</p>
+      </div>
+    </div>
+  </section>
 
   <!-- ======= 建案詳細內容 ======= -->
   <main class="max-w-6xl mx-auto px-6 py-12">
@@ -255,7 +295,7 @@
       <p class="text-gray-300">公司名稱：海泓實業有限公司</p>
       <p class="mt-1 text-gray-300">公司地址：台南市安平區健康二街506-1號</p>
       <p class="mt-1 text-gray-300">聯絡電話：0977-168-088</p>
-      <p class="mt-1 text-gray-300">Email：hihome83533544@gmail.com</p>
+      <p class="mt-1 text-gray-300">Email：hihomecompany8888@gmail.com</p>
       <div class="mt-8 text-gray-400 text-sm">© 2025 海泓實業有限公司</div>
     </div>
   </footer>
