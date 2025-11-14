@@ -1,0 +1,300 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>海泓•崇德路鋼構建築 - 海泓實業有限公司</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="icon" href="images/icon/hihome_icon.jpg" />
+  <link rel="shortcut icon" href="images/icon/hihome_icon.jpg" />
+  <style>
+    /* 圖片懸停放大效果 */
+    .image-hover {
+      transition: transform 0.3s ease, z-index 0.3s ease;
+      cursor: pointer;
+    }
+    .image-hover:hover {
+      transform: scale(1.05);
+      z-index: 10;
+      position: relative;
+    }
+    
+    /* Modal 樣式 */
+    .image-modal {
+      display: none;
+      position: fixed;
+      z-index: 1000;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.9);
+      animation: fadeIn 0.3s;
+    }
+    
+    .image-modal.active {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    
+    .image-modal-content {
+      max-width: 90%;
+      max-height: 90%;
+      object-fit: contain;
+      animation: zoomIn 0.3s;
+    }
+    
+    .image-modal-close {
+      position: absolute;
+      top: 20px;
+      right: 35px;
+      color: #f1f1f1;
+      font-size: 40px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: color 0.3s;
+    }
+    
+    .image-modal-close:hover {
+      color: #fff;
+    }
+    
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+    
+    @keyframes zoomIn {
+      from { transform: scale(0.8); opacity: 0; }
+      to { transform: scale(1); opacity: 1; }
+    }
+  </style>
+</head>
+<body class="antialiased text-gray-800">
+
+  <!-- ======= Header / 導覽列 ======= -->
+  <header class="bg-white shadow-sm">
+    <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
+      <div class="flex items-center gap-3">
+        <a href="index.html">
+          <img src="images/icon/hihome_icon.jpg" alt="海泓 Logo" class="w-12 h-12 rounded object-cover" />
+        </a>
+        <div>
+          <a href="index.html" class="text-xl font-semibold hover:text-blue-700">海泓實業有限公司</a>
+          <div class="text-xs text-gray-500">家，是我們愛的來源</div>
+        </div>
+      </div>
+
+      <nav class="hidden md:flex gap-8 items-center">
+        <a href="index.html#projects" class="hover:text-blue-700">近期建案</a>
+        <a href="index.html#about" class="hover:text-blue-700">關於我們</a>
+        <a href="index.html#contact" class="hover:text-blue-700">聯絡方式</a>
+      </nav>
+
+      <div class="md:hidden">☰</div>
+    </div>
+  </header>
+
+  <!-- ======= 建案詳細內容 ======= -->
+  <main class="max-w-6xl mx-auto px-6 py-12">
+    <!-- 返回按鈕 -->
+    <a href="index.html#projects" class="inline-flex items-center text-blue-600 hover:text-blue-800 mb-6">
+      <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+      </svg>
+      返回建案列表
+    </a>
+
+    <!-- 建案標題區 -->
+    <div class="mb-8">
+      <h1 class="text-4xl font-bold mb-2">海泓•崇德路鋼構建築</h1>
+      <p class="text-xl text-gray-600">臺南市崇德路 • 已完工</p>
+    </div>
+
+    <!-- 建案基本資訊 -->
+    <div class="bg-white rounded-lg shadow p-6 mb-8">
+      <h2 class="text-2xl font-bold mb-4">建案資訊</h2>
+      <div class="grid md:grid-cols-2 gap-6">
+        <div>
+          <h3 class="font-semibold text-gray-700 mb-2">建案地點</h3>
+          <p class="text-gray-600">臺南市崇德路</p>
+        </div>
+        <div>
+          <h3 class="font-semibold text-gray-700 mb-2">建案狀態</h3>
+          <p class="text-gray-600">已完工</p>
+        </div>
+        <div>
+          <h3 class="font-semibold text-gray-700 mb-2">開工日期</h3>
+          <p class="text-gray-600">2023年7月</p>
+        </div>
+        <div>
+          <h3 class="font-semibold text-gray-700 mb-2">完工日期</h3>
+          <p class="text-gray-600">2024年7月</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- 施工項目 -->
+    <div class="bg-white rounded-lg shadow p-6 mb-8">
+      <h2 class="text-2xl font-bold mb-4">施工項目</h2>
+      <ul class="list-disc list-inside space-y-2 text-gray-700">
+        <li>鋼構結構工程</li>
+        <li>基礎工程</li>
+        <li>外牆工程</li>
+        <li>屋頂防水工程</li>
+        <li>水電配管工程</li>
+        <li>室內裝修工程</li>
+        <li>景觀工程</li>
+      </ul>
+    </div>
+
+    <!-- 建案詳細說明 -->
+    <div class="bg-white rounded-lg shadow p-6 mb-8">
+      <h2 class="text-2xl font-bold mb-4">建案說明</h2>
+      <p class="text-gray-700 leading-relaxed mb-4">
+        本建案位於臺南市崇德路，採用現代化鋼構建築技術，結合傳統工藝與創新設計理念。整個工程歷時一年，從基礎開挖到最終完工，每個階段都嚴格把關，確保施工品質。
+      </p>
+      <p class="text-gray-700 leading-relaxed mb-4">
+        本案特別注重結構安全性與居住舒適度，採用高品質鋼構材料，提供優異的抗震性能。同時，在設計上充分考慮採光與通風，打造健康宜居的生活空間。
+      </p>
+      <p class="text-gray-700 leading-relaxed">
+        施工過程中，我們嚴格執行品質管理，從材料選購到施工監理，每個環節都經過專業團隊的仔細檢核，確保最終成果符合客戶期待與業界標準。
+      </p>
+    </div>
+
+    <!-- 施工前後對比 -->
+    <div class="bg-white rounded-lg shadow p-6 mb-8">
+      <h2 class="text-2xl font-bold mb-6">施工前後對比</h2>
+      
+      <!-- 施工前照片 -->
+      <div class="mb-8">
+        <h3 class="text-xl font-semibold mb-4 text-gray-700">施工前</h3>
+        <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
+          <img 
+            src="images/10street_before/LINE_ALBUM_歸仁文化10街1130712-1140712_251113_1.jpg" 
+            alt="施工前照片1" 
+            class="w-full h-48 object-cover rounded shadow image-hover" 
+            onclick="openImageModal(this.src)"
+          />
+          <img 
+            src="images/10street_before/LINE_ALBUM_歸仁文化10街1130712-1140712_251113_2.jpg" 
+            alt="施工前照片2" 
+            class="w-full h-48 object-cover rounded shadow image-hover" 
+            onclick="openImageModal(this.src)"
+          />
+          <img 
+            src="images/10street_before/LINE_ALBUM_歸仁文化10街1130712-1140712_251113_3.jpg" 
+            alt="施工前照片3" 
+            class="w-full h-48 object-cover rounded shadow image-hover" 
+            onclick="openImageModal(this.src)"
+          />
+        </div>
+      </div>
+
+      <!-- 施工後照片 -->
+      <div>
+        <h3 class="text-xl font-semibold mb-4 text-gray-700">施工後</h3>
+        <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
+          <img 
+            src="images/10street_after/LINE_ALBUM_歸仁文化10街1130712-1140712_251113_1.jpg" 
+            alt="施工後照片1" 
+            class="w-full h-48 object-cover rounded shadow image-hover" 
+            onclick="openImageModal(this.src)"
+          />
+          <img 
+            src="images/10street_after/LINE_ALBUM_歸仁文化10街1130712-1140712_251113_2.jpg" 
+            alt="施工後照片2" 
+            class="w-full h-48 object-cover rounded shadow image-hover" 
+            onclick="openImageModal(this.src)"
+          />
+          <img 
+            src="images/10street_after/LINE_ALBUM_歸仁文化10街1130712-1140712_251113_3.jpg" 
+            alt="施工後照片3" 
+            class="w-full h-48 object-cover rounded shadow image-hover" 
+            onclick="openImageModal(this.src)"
+          />
+          <img 
+            src="images/10street_after/LINE_ALBUM_歸仁文化10街1130712-1140712_251113_4.jpg" 
+            alt="施工後照片4" 
+            class="w-full h-48 object-cover rounded shadow image-hover" 
+            onclick="openImageModal(this.src)"
+          />
+          <img 
+            src="images/10street_after/LINE_ALBUM_歸仁文化10街1130712-1140712_251113_5.jpg" 
+            alt="施工後照片5" 
+            class="w-full h-48 object-cover rounded shadow image-hover" 
+            onclick="openImageModal(this.src)"
+          />
+          <img 
+            src="images/10street_after/LINE_ALBUM_歸仁文化10街1130712-1140712_251113_6.jpg" 
+            alt="施工後照片6" 
+            class="w-full h-48 object-cover rounded shadow image-hover" 
+            onclick="openImageModal(this.src)"
+          />
+        </div>
+      </div>
+    </div>
+
+    <!-- 圖片全圖 Modal -->
+    <div id="imageModal" class="image-modal" onclick="closeImageModal()">
+      <span class="image-modal-close">&times;</span>
+      <img id="modalImage" class="image-modal-content" src="" alt="全圖預覽" />
+    </div>
+  </main>
+
+  <!-- ======= Contact / 聯絡方式 ======= -->
+  <footer id="contact" class="bg-gray-900 text-white py-12">
+    <div class="max-w-6xl mx-auto px-6">
+      <h3 class="text-xl font-bold mb-4">聯絡我們</h3>
+      <p class="text-gray-300">公司名稱：海泓實業有限公司</p>
+      <p class="mt-1 text-gray-300">公司地址：台南市安平區健康二街506-1號</p>
+      <p class="mt-1 text-gray-300">聯絡電話：0977-168-088</p>
+      <p class="mt-1 text-gray-300">Email：hihome83533544@gmail.com</p>
+      <div class="mt-8 text-gray-400 text-sm">© 2025 海泓實業有限公司</div>
+    </div>
+  </footer>
+
+  <!-- 圖片 Modal 控制腳本 -->
+  <script>
+    function openImageModal(imageSrc) {
+      const modal = document.getElementById('imageModal');
+      const modalImg = document.getElementById('modalImage');
+      modalImg.src = imageSrc;
+      modal.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeImageModal() {
+      const modal = document.getElementById('imageModal');
+      modal.classList.remove('active');
+      document.body.style.overflow = 'auto';
+    }
+
+    document.addEventListener('DOMContentLoaded', function() {
+      const closeBtn = document.querySelector('.image-modal-close');
+      if (closeBtn) {
+        closeBtn.addEventListener('click', function(e) {
+          e.stopPropagation();
+          closeImageModal();
+        });
+      }
+
+      const modalImg = document.getElementById('modalImage');
+      if (modalImg) {
+        modalImg.addEventListener('click', function(e) {
+          e.stopPropagation();
+        });
+      }
+
+      document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape') {
+          closeImageModal();
+        }
+      });
+    });
+  </script>
+
+</body>
+</html>
+
