@@ -94,19 +94,50 @@
     
     .hero-background-bg {
       position: absolute;
-      top: 0;
+      inset: 0;
+      background-size: cover;
+      background-position: center;
+      filter: brightness(1.0) blur(14px);
+      transform: scale(1.06);
+      z-index: 0;
+    }
+
+    /* 底部漸層遮罩，與下方白色區塊自然銜接 */
+    .hero-background-fade {
+      position: absolute;
       left: 0;
       right: 0;
       bottom: 0;
-      background-size: cover;
-      background-position: center;
-      filter: brightness(1.0);
-      z-index: 0;
+      height: 35%;
+      background: linear-gradient(to bottom, transparent 0%, rgba(255, 255, 255, 0.85) 70%, rgba(255, 255, 255, 1) 100%);
+      z-index: 2;
+      pointer-events: none;
     }
     
     .hero-background-content {
       position: relative;
-      z-index: 1;
+      z-index: 3;
+    }
+
+    .hero-text-outline {
+      text-shadow: 0 3px 12px rgba(0, 0, 0, 0), 0 0 6px rgba(0, 0, 0, 0.45);
+      -webkit-text-stroke: 0.5px rgba(0, 0, 0, 0.356);
+    }
+
+    .hero-subtitle {
+      text-shadow: 0 2px 10px rgba(0, 0, 0, 0.6);
+    }
+
+    .brand-tagline {
+      white-space: nowrap;
+      transition: font-size 0.2s ease;
+    }
+
+    @media (max-width: 640px) {
+      .brand-tagline {
+        font-size: 0.65rem;
+        letter-spacing: 0.02em;
+      }
     }
   </style>
 </head>
@@ -120,8 +151,8 @@
       <div class="flex items-center gap-3">
         <img src="hihome_icon.jpg" alt="海泓 Logo" class="w-12 h-12 rounded object-cover logo-bright" />
         <div>
-          <div class="text-xl font-semibold">海泓實業有限公司</div>
-          <div class="text-xs text-gray-500">家，是我們愛的來源</div>
+          <div class="text-xl font-semibold ">海泓實業有限公司</div>
+          <div class="text-xs text-gray-500 brand-tagline">家，是我們愛的來源</div>
         </div>
       </div>
 
@@ -141,10 +172,11 @@
   <!-- 更換 background-image 的 URL 為你準備的代表性建案照片 -->
   <section class="hero-background relative h-[60vh] md:h-[70vh]">
     <div class="hero-background-bg" style="background-image: url('Main_Backgound.jpg');"></div>
-    <div class="hero-background-content absolute inset-0 bg-black/0 flex items-center">
+    <div class="hero-background-fade" aria-hidden="true"></div>
+    <div class="hero-background-content absolute inset-0 bg-black/0 md:bg-black/0 flex items-center">
       <div class="max-w-4xl mx-auto px-6 text-white">
-        <h1 class="text-4xl md:text-5xl font-extrabold">築夢踏實 • 回家就是安心</h1>
-        <p class="mt-4 text-lg md:text-xl">海泓實業 — 以誠信與品質為本，打造溫暖、安全且永續的家。</p>
+        <h1 class="text-4xl md:text-5xl font-extrabold hero-text-outline">築夢踏實 • 回家就是安心</h1>
+        <p class="mt-4 text-lg md:text-xl hero-subtitle">海泓實業 — 以誠信與品質為本，打造溫暖、安全且永續的家。</p>
         <div class="mt-6">
           <a href="#projects" class="inline-block bg-yellow-400 text-black px-6 py-3 rounded-lg shadow">查看近期建案</a>
           <a href="#contact" class="ml-4 inline-block border border-white px-6 py-3 rounded-lg">聯絡我們</a>
@@ -332,7 +364,7 @@
         <p class="mt-1 text-gray-300">公司地址：台南市安平區健康二街506-1號</p>
         <p class="mt-1 text-gray-300">聯絡電話：0977-168-088</p>
         <p class="mt-1 text-gray-300">Email：hihomecompany8888@gmail.com</p>
-        <p class="mt-4 text-sm text-gray-400"></p>
+        <p class="mt-4 text-sm text-gray-400">建議：如果想要我幫你把聯絡表單寄到其他信箱，請先建立該電子郵件帳號（本範例不會自動建立帳號）。</p>
       </div>
 
       <!-- 右側：聯絡表單（前端示範） -->
@@ -375,7 +407,7 @@
 
     </div>
 
-    <div class="max-w-6xl mx-auto px-6 mt-8 text-gray-400 text-sm">© 2025 海泓實業有限公司</div>
+    <div class="max-w-6xl mx-auto px-6 mt-8 text-gray-400 text-sm">© 2025 海泓實業有限公司 • Produced by 你的團隊名稱</div>
   </footer>
 
   <!-- ======= 簡單說明（留在檔案末端，方便日後維護） ======= -->
